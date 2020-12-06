@@ -1,0 +1,111 @@
+<!DOCTYPE = "html">
+<html lang="en>
+<head>
+	<meta charset="UTF-8">
+	<title>Adopt|Foster</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+body{
+	background:url(https://www.pixelstalk.net/wp-content/uploads/2016/04/Dog-backgrounds-pictures-images.jpg);
+        background-size: cover;
+	
+}
+h3
+{
+color:white;
+
+}
+form.search input[type=text] {
+ 
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float:center;
+  width: 30%;
+  float:left;
+  
+  
+}
+
+form.search button {
+  float:left;
+  width: 5%;
+  padding: 10px;
+  background:#e60000;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.search button:hover {
+  background: #FF4500;
+}
+.atozorder { 
+    cursor: pointer;
+	  background-color:red;
+  	border: none;
+  	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+  	display: inline-block;
+  	font-size: 16px;
+    float:right;
+  }
+.city {
+color: #fff !important;
+text-transform: uppercase;
+text-decoration: none;
+background: #ed3330;
+padding: 20px;
+border-radius: 5px;
+display: inline-block;
+border: none;
+transition: all 0.4s ease 0s;
+width:200px;
+text-align:center;
+float: left;
+}
+.city:hover {
+background:orangered;
+letter-spacing: 1px;
+-webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+-moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+transition: all 0.4s ease 0s;
+}
+
+h3
+{
+color:white;
+}
+.no_result{
+  float: left;
+  color:white;
+}
+</style>
+</head>
+<body>
+<h3>Please contact the shelter ONLY if you live in the city or immediate surrounding areas and adhere to the any and all contact regulations prescribed by the shelter</h3><br>
+<form class="search" action="" method="POST">
+  {% csrf_token %}
+  <input type="text" placeholder="Search city.." name="q" >
+  <button type="submit" name="submit" value="Search" ><i class="fa fa-search"></i></button>
+</form><br><br>
+
+{% if search_results_len != 0 %}
+{% for city in cities %}
+<form action="petdetails/" method="POST">
+  {% csrf_token %}
+<button class="city"  value="{{city.city_name}}" name="city_name">{{city.city_name}}</button>
+</form><br><br><br><br>
+{% endfor %}
+
+{% else %}
+<div class="no_result">
+  <h3>NO RESULTS FOUND </h3>
+  </div>
+{% endif %}
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+	<title>FAQ</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/CSS">
+
+body {
+        background:url(https://www.pixelstalk.net/wp-content/uploads/2016/04/Dog-backgrounds-pictures-images.jpg);
+        background-size: cover;
+        
+}
+* {
+  box-sizing: border-box;
+}
+
+form.search input[type=text] {
+ 
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 50%;
+  
+}
+
+form.search button {
+  float: left;
+  width: 5%;
+  padding: 10px;
+  background:red;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+}
+
+form.search button:hover {
+  background: #FF4500;
+}
+.question {
+  cursor: pointer;
+  padding: 18px;
+  width: 55%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 20px;
+  font-weight:50px;
+  transition: 0.4s;
+}
+
+.active, .question:hover {
+  background-color: #ccc; 
+}
+
+.answer {
+  width: 55%;
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+.no_result{
+  float: left;
+  color:white;
+}
+</style>
+</head>
+<body>
+
+<form class="search" action="" method="POST">
+  {% csrf_token %}
+  <input type="text" placeholder="Search.." name="q" >
+  <button type="submit" name="submit" value="Search" ><i class="fa fa-search"></i></button>
+</form>
+{% if search_results_len != 0 %}
+{% for Faq in Faqs %}
+<button class="question">{{Faq.question}}</button>
+<div class="answer">
+  <p>{{Faq.answer}}</p>
+</div>
+{% endfor %}
+{% else %}
+<div class="no_result">
+<h3>NO RESULTS FOUND </h3>
+</div>
+{% endif %}
+<script>
+var que = document.getElementsByClassName("question");
+var i;
+
+for (i = 0; i < que.length; i++) {
+  que[i].addEventListener("click", function() {
+    
+    var answer = this.nextElementSibling;
+    
+    if (answer.style.display == "block") {
+      answer.style.display = "none";
+    } else {
+      answer.style.display = "block";
+    }
+  });
+}
+</script>
+
+</body>
+</html>

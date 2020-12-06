@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Adopt|Foster|help</title>
+<style type="text/CSS">
+body{
+	font-family: Arial;
+	margin:0;
+	padding:20px;
+	background-color: #f1f1f1;
+}
+*{
+	box-sizing: border-box;
+}
+
+header{
+	background-color: #ffffff;
+	padding:30px;
+}
+header h1{
+	text-align: center;
+	font-size:60px;
+	color:#000000;
+	margin:1.5 0px;
+}
+
+h2{
+	color:#000000;
+	margin:1.5 0px;	
+}
+.left-column{
+float: left;
+width: 75%;	
+}
+
+.right-column{
+ width: 25%;
+ float: right;
+ padding-left:20px;
+}
+.card{
+	padding: 20px;
+	background-color: #ffffff;
+ 	margin-top:20px;
+}
+
+.card img{
+	width: 50%;
+}
+
+
+.right-column .card img{
+	margin-bottom: 10px;
+}
+
+
+.button{
+	height: 50px;
+	width: 150px;
+	font-size: 18px;
+	font-weight: 600;
+	color: white;
+	background: red;
+	outline: none;
+	cursor: pointer;
+	border: 1px solid #cc0000;
+	border-radius: 25px;
+	transition: .4s;
+	
+}
+
+/*responsive */
+
+@media(max-width:800px){
+	.left-column,.right-column{
+    width: 100%;
+    padding: 0px;
+	}
+}
+
+
+</style>
+<body>
+ <header>
+ 	<h1>Adopt|Foster</h1>
+ </header>
+ <form>
+	{% csrf_token %} 
+	<div class="row">
+		<div class="left-column">
+		<div class="card">
+			<h2>Adopt</h2>
+			<h5>“Saving one dog will not change the world,but surely for that one dog, the world will change forever!”</h5>
+			<img src="http://ayay.co.uk/backgrounds/animals/dogs/sad-puppy.jpg" >
+			<h3>Adopt Don't Shop</h3>
+			<p>Pet stores sell animals for profit.Shelters take in abandoned animals and provide them with veterinary care, food, water and find them loving homes. Make a Fur-ever friend from a shelter.The amount of self-satisfaction that you will get by adopting a pet would far surpass that when you purchase one because the amount of unconditional love you will receive from a homeless or rescued pet will be far greater than that you would receive from a pet that you purchase.</p>
+			<button  class="button" formaction="#" formmethod="POST" >Adopt|Foster</button>
+		</div>
+		<div class="card">
+			<h2>Foster</h2>
+			<h5>"These pets leave paw prints on your heart"</h5>
+			<img src="https://s3.amazonaws.com/playbarkrun/wp-content/uploads/2017/01/06120730/11.jpg">
+			<h3>Foster a Pet</h3>
+			<p>Why not foster if you can't adopt? That means taking a pet into your home and providing it with shelter and care for a predetermined amount of time or until a forever home is found.</p>
+			<button  class="button" formaction="#" formmethod="POST">Adopt|Foster</button>
+		</div>
+		</div>
+
+		<div class="right-column">
+			<div class="card">
+				<h2>Help</h2>
+				<img src="https://www.womansworld.com/wp-content/uploads/2018/05/sad-cat-luhu.jpg" >
+				<p>In these times, fostering or adopting would be the greatest help.However, if that is not an option, you can donate food or money to local shelters, or feed strays around your home with animal-friendly food.</p>
+				<button class="button" formaction="help/" formmethod="POST">Help</button>
+			</div>
+	</form>
+ 		
+ 		<div class="card">
+ 			 <h3>We need your help</h3>
+ 			 <img src="https://lrwonline.com/wp-content/uploads/2019/03/BLOG-Sad-Dog-1200x900-1200x900.jpg">
+ 			 <img src="https://c.wallhere.com/photos/22/9d/cats_cute_face_closeup_cat_50mm_kitten_dof-954925.jpg!d">
+ 			 <img src="https://northshore-vet.com/wp-content/uploads/2016/07/saddog.jpg">
+			 <img src="https://images.pexels.com/photos/3553903/pexels-photo-3553903.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940">
+			 <img src="https://qtxasset.com/styles/breakpoint_xl_880px_w/s3/Luxury%20Travel%20Advisor-1509741245/saddogMartazmataiStockGettyImagesPlusGettyImages.jpg?mzYIWMzkdK105twjZwHhpnONEYBIG2Ya&itok=ZhpS3gL9">
+			
+ 		</div>
+ 		
+ 	</div>
+ </div>
+
+
+	
+</body>
+</html>

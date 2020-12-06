@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: black;
+  }
+  div.pet_details_container {
+  
+    width: 20%;
+    height: 20%;
+    background-color: #FFFFFF;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+  }
+  .open-button {
+    cursor: pointer;
+	  background-color:red;
+  	border: none;
+  	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+  	display: inline-block;
+  	font-size: 16px;
+    
+	
+  }
+  
+</style>
+</head>
+<body>
+{% for pet_detail in pet_details %}
+  {% if pet_detail.available_for_adoption == True%}
+    <center>
+    <div class="pet_details_container" >
+        <div class="container" >
+            <img src="{{pet_detail.pet_image.url}}" style="width:100%; height:100%;" >
+            <form action="shelter_details/" method="POST">
+              {% csrf_token %}
+            <button class="open-button" value="{{pet_detail.pet_shelter}}" name="shelter_details">Click here to View shelter Details</button><br>
+            </form>      
+            <div class="pet_content">
+                    <p class="pet">Pet name : {{pet_detail.pet_name}}</p>
+                    <p class="Pet">Pet type: {{pet_detail.pet_type}}</p>
+                    <p class="Pet">Gender: {{pet_detail.pet_gender}}</p>
+                    <p class="Pet">Breed: {{pet_detail.pet_breed}}</p>
+                    <p class="Pet">Age: {{pet_detail.pet_age}}</p>
+                    <p class="pet">Pet shelter name :{{pet_detail.pet_shelter}}</p>
+                    <p class="pet">Available for adoption</p>
+                    {% if pet_detail.availabe_for_foster == True %}
+                    <p class="pet">Available for Foster</p>
+                    {% endif %}
+                    <p class="pet">lastmodified :{{pet_detail.last_modified}}</p>
+                  </div>
+                   
+                  
+        </div>
+        
+    </div>
+
+    </center>
+
+  {% endif %}
+{% endfor %}
+</body>
+</html>

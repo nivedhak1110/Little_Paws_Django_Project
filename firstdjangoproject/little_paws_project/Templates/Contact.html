@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Contact</title>
+<style type="text/CSS">
+body {
+        background:url(https://www.pixelstalk.net/wp-content/uploads/2016/04/Dog-backgrounds-pictures-images.jpg);
+	background-size: cover;
+	
+	  
+        
+          
+       
+    	}
+
+.submit { 
+ 	cursor: pointer;
+	background-color: #cc0000; /* blue */
+  	border: none;
+  	color: white;
+  	padding: 15px 32px;
+  	text-align: center;
+  	display: inline-block;
+  	font-size: 16px;
+	background: linear-gradient(to right, #e62e00, #cc0000);
+	
+}
+
+
+input { 
+    width: 100%; 
+    margin-bottom: 10px; 
+    background: rgba(0,0,0,0.3);
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 4px;
+    box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+    -webkit-transition: box-shadow .5s ease;
+    -moz-transition: box-shadow .5s ease;
+    -o-transition: box-shadow .5s ease;
+    -ms-transition: box-shadow .5s ease;
+    transition: box-shadow .5s ease;
+}
+input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
+.contact { 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -150px;
+    width:300px;
+    height:300px;
+}
+.contact h1 { color: #fff; text-shadow: 0 0 10px rgba(0,0,0,0.3); letter-spacing:1px; text-align:center; }
+
+
+
+
+</style>
+
+</head>
+<body>
+<div class="contact">
+<center>
+<h1>Contact</h1>
+<p style="color: #fff;">If you are an organisation, become a part of our family.
+Send us a message using this form and we'll get back to you.</p>
+<form action="" method="POST">
+    {% csrf_token %}
+	<input type="text" class="details" ID="organisation_name" name="organisation_name" placeholder="Organisation Name" required><br>
+	<input type="email" class="details" ID="email" name="email" placeholder="Organisation Email" required ><br>
+	<input type="text" class="details" ID="contact" name="contact" placeholder="Phone number" required ><br>
+	 <input ID="message"   name="message"  rows="5" cols="70"  placeholder="Message" required >
+	<button class="submit"   type="submit">Submit</button>
+
+</form>
+</center>
+</div>
+</body>

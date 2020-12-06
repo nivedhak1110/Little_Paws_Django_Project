@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>little paws</title>
+<style type="text/CSS">
+*{
+	padding: 0;
+	margin: 0;
+}
+.wrapper{
+	background: url(https://jooinn.com/images/sad-dog-1.jpg) no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+.navbar{
+	position: fixed;
+	height: 80px;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.4);
+}
+.navbar .logo{
+	width: 50px;
+	height: 50px;
+	padding: 10px 50px;
+}
+.navbar ul{
+	float: right;
+	margin-right: 20px;
+}
+.navbar ul li{
+	list-style: none;
+	margin: 0 8px;
+	display: inline-block;
+	line-height: 80px;
+}
+.navbar ul li a{
+	font-size: 20px;
+	font-family: 'Roboto', sans-serif;
+	color: white;
+	padding: 6px 13px;
+	text-decoration: none;
+	transition: .4s;
+}
+.navbar ul li a.active,
+.navbar ul li a:hover{
+	background: red;
+	border-radius: 2px;
+}
+.wrapper .center{
+	position: absolute;
+	left: 50%;
+	top: 55%;
+	transform: translate(-50%, -50%);
+	font-family: sans-serif;
+	user-select: none;
+}
+.center h1{
+	color: white;
+	font-size: 50px;
+	width: 900px;
+	text-align:left;
+}
+.center h2{
+	color: white;
+	font-size: 35px;
+	margin-top: 10px;
+	width: 800px;
+	text-align: left;
+}
+.center .buttons{
+	margin: 35px 80px;
+}
+.buttons button{
+	height: 50px;
+	width: 150px;
+	font-size: 18px;
+	font-weight: 600;
+	color: white;
+	background: red;
+	outline: none;
+	cursor: pointer;
+	border: 1px solid #cc0000;
+	border-radius: 25px;
+	transition: .4s;
+	
+}
+.buttons .btn2{
+	margin-left: 25px;
+	
+}
+.buttons button:hover{
+	background: #cc0000;
+}
+
+</style>
+</head>
+<body>
+<div class="wrapper">
+	<nav class="navbar">
+		<img class="logo" src="https://images-na.ssl-images-amazon.com/images/I/61XdZxBCAjL._SX569_.jpg">
+			<ul>
+			<li><a class="active" href="">Home</a></li>
+			{%if user.is_authenticated %}
+			<li style= "color:white" ><a >Hello {{ user.username }}!</a></li>
+			<li><a href="logout/">logout</a></li>
+			{%else%}
+			<li><a href="signup/">Signup</a></li>
+			<li><a href="login/">login</a></li>
+			{% endif %}
+			<li><a href="adopt_foster_cities/">Adopt|Foster</a></li>
+			<li><a href="help/">Help</a></li>
+			<li><a href="/happy_stories">Happy Stories</a></li>
+			<li><a href="FAQ/">FAQ</a></li>
+			<li><a href="contact/">Contact</a></li>
+			<li><a href="about/">about</a></li>
+
+			</ul>
+	</nav>
+	<div class="center">
+			<h1>Welcome To Little Paws</h1>
+			<h2>Adopt|Foster a little pet here</h2>
+			<form>
+				{% csrf_token %}
+			<div class="buttons">
+			<button formaction="adopt_Foster_help/" formmethod="POST">Explore More</button>
+			
+			</div>
+			</form>
+	</div>
+	
+</div>
+</body>
+</html>
