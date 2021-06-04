@@ -1,0 +1,52 @@
+Preequisites:
+1.Install postgresql,pgadmin
+2.username-postgres[by default],password-1234
+3.create database --->database name must be little_paws
+
+
+Procedure:
+*********
+1.clone project into your local computer
+        make a directory with anyname example little_paws_demo
+        inside the directory
+        git clone https://github.com/nivedhak1110/Little_Paws_Django_Project.git
+        after cloning delete little_paws_venv folder
+2.Open vscode
+        open little_paws_demo folder
+        cd little_paws_django_project
+        py -m venv test [to create a virtual environment]
+        test\Scripts\activate
+        (test)----->now enters into venv
+        Now cd firstdjangoproject
+        cd little_paws_project
+3.Install requirements
+        pip install django
+        pip install psycopg2
+        pip install pillow
+4.create super User
+        python manage.py create superuser
+
+5.Database
+        python manage.py makemigrations
+        python manage.pymigrate
+
+6.To run server
+        python manage.py runserver
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+    
